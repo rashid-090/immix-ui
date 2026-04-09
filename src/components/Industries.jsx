@@ -32,7 +32,7 @@ const Industries = () => {
             <img 
               src={CDN} 
               alt="Data Professional" 
-              className="h-full w-full object-cover object-top filter brightness-95 transition-transform duration-700 group-hover:scale-105"
+              className="h-full w-full object-cover object-right filter brightness-95 transition-transform duration-700 group-hover:scale-105"
             />
             {/* Subtle fade to blend image with green background */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#000000cc] via-transparent to-transparent md:bg-gradient-to-r from-[#000000cc] via-transparent to-transparent" />
@@ -76,10 +76,10 @@ const Industries = () => {
             <img 
               src={BIGDATA} 
               alt="Data Professional" 
-              className="h-full w-full object-cover object-top filter brightness-95 transition-transform duration-700 group-hover:scale-105"
+              className="h-full w-full object-cover object-right filter brightness-90 transition-transform duration-700 group-hover:scale-105"
             />
             {/* Subtle fade to blend image with green background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#000000cc] via-transparent to-transparent md:bg-gradient-to-r from-[#000000cc] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#000000cc] via-transparent to-transparent md:bg-gradient-to-r from-[#000000e8] via-transparent to-transparent" />
           </div>
         </div>
 

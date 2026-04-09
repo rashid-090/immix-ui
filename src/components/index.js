@@ -6,7 +6,8 @@ import Counters from "./Counters";
 import DataCenter from "./DataCenter";
 import Getintouch from "./Getintouch";
 import LoactionGlobe from "./LoactionGlobe";
-
+import ClinetsLogo from "./ClinetsLogo";
+import ContactForm from "./ContactForm";
 export {
     Banner,
     Service,
@@ -15,5 +16,7 @@ export {
     Counters,
     DataCenter,
     Getintouch,
-LoactionGlobe
+LoactionGlobe,
+ClinetsLogo,
+ContactForm
 }

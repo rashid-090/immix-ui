@@ -1,13 +1,5 @@
-import React, { useLayoutEffect, useRef, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, A11y, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
+import React from "react";
+import { headerbg } from "../assets";
 import {
   DataCenterSecurityImg,
   SystemInfrastructureImg,
@@ -16,10 +8,15 @@ import {
   DataCenterMigrationImg,
   ManagedHostingImg,
 } from "../assets";
+import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, A11y, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const allServices = [
+const Services = () => {
+  const bgImage = headerbg;
+  const allServices = [
     {
         slug: "data-center-security",
       title: "Data Center Security",
@@ -70,130 +67,42 @@ const allServices = [
     },
   ];
 
-const Service = () => {
-  const component = useRef(null);
-  const slider = useRef(null);
-  const [init, setInit] = useState(false);
-
-  // Initialize particles engine
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, []);
-
-  useLayoutEffect(() => {
-    let mm = gsap.matchMedia();
-
-    mm.add(
-      {
-        isMobile: "(max-width: 767px)",
-        isDesktop: "(min-width: 768px)",
-      },
-      () => {
-        const getScrollAmount = () => {
-          if (!slider.current) return 0;
-          let totalWidth = slider.current.scrollWidth;
-          let viewportWidth = slider.current.offsetWidth;
-          return -(totalWidth - viewportWidth);
-        };
-
-        const ctx = gsap.to(slider.current, {
-          x: getScrollAmount,
-          ease: "none", // Required for scrub to feel consistent
-          scrollTrigger: {
-            trigger: component.current,
-            pin: true,
-            scrub: 2, // The higher the number, the "smoother/heavier" the scroll feels
-            start: "top top",
-            end: () => `+=${slider.current?.scrollWidth}`,
-            invalidateOnRefresh: true,
-            anticipatePin: 1, // Smooths the transition into the pinned state
-          },
-        });
-
-        return () => ctx.kill();
-      },
-    );
-
-    return () => mm.revert();
-  }, [init]);
-
-  const particlesOptions = {
-    background: { color: "#ffffff" },
-    fpsLimit: 120,
-    interactivity: {
-      events: {
-        onHover: { enable: true, mode: "grab" },
-      },
-      modes: {
-        grab: { distance: 240, links: { opacity: 0.5 } },
-      },
-    },
-    particles: {
-      color: { value: "#3F37FF" },
-      links: {
-        color: "#3F37FF",
-        distance: 150,
-        enable: true,
-        opacity: 0.2,
-        width: 1,
-      },
-      move: {
-        enable: true,
-        speed: 1,
-        direction: "none",
-        random: false,
-        straight: false,
-        outModes: { default: "out" },
-      },
-      number: { density: { enable: true, area: 800 }, value: 80 },
-      opacity: { value: 0.3 },
-      shape: { type: "circle" },
-      size: { value: { min: 1, max: 3 } },
-    },
-    detectRetina: true,
-  };
-
   return (
-    <section ref={component} className="relative overflow-hidden bg-white">
-      {/* Background Animation */}
-      {init && (
-        <Particles
-          id="tsparticles"
-          options={particlesOptions}
-          className="absolute inset-0 z-0"
-        />
-      )}
-
-      {/* Content Container */}
-      <div className="relative z-10 w-11/12 md:w-10/12 mx-auto flex flex-col justify-center items-center py-20 min-h-screen pointer-events-none">
-        <div className="text-center mb-10 pointer-events-auto">
-          <div className="p-2 rounded-[5px] w-fit mx-auto mb-5 bg-primary-1/10">
-            <h2 className="text-[#3F37FF] tracking-wider font-DMmono uppercase text-[10px]">
-              [ Smarter Data Center Solutions ]
-            </h2>
-          </div>
-          <h1 className="text-3xl md:text-5xl capitalize font-Inter text-slate-900">
-            Our Services
-          </h1>
+    <div className="bg-white text-black mt-[73px]">
+      {/* --- HERO SECTION --- */}
+      <section className="relative h-52 xl:h-60 flex flex-col justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center z-0"
+          style={{
+            backgroundImage: `url('${bgImage}')`,
+            backgroundAttachment: "fixed", // This creates the "fixed" scroll effect
+            backgroundPosition: "bottom",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-transparent" />
         </div>
 
-        <div className="w-full pointer-events-auto overflow-visible">
-          <div
-            ref={slider}
-            className="hidden lg:flex flex-nowrap gap-4 md:gap-5 will-change-transform"
-          >
-            {allServices.map((service, index) => (
+        <div className="w-10/12 mx-auto relative text-white ">
+          <h2 className="text-3xl md:text-5xl">Innovative Digital Services</h2>
+           <div className="mt-3 text-sm md:text-base">
+                        <span className="font-DMmono"><Link to="/" className="hover:text-primary-1">Home</Link> | Services</span>
+            </div>
+        </div>
+      </section>
+
+      <section className="hidden lg:block w-11/12 xl:w-10/12 mx-auto py-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          {allServices.map((service, index) => (
+            <Link to={`/services/${service.slug}`} key={index}>
               <div
-                key={index}
-                className="panel relative flex-none w-[80%] md:w-[calc(40%-10px)] bg-white/80 backdrop-blur-sm border border-dashed border-gray-200 p-2 md:p-3 rounded-lg"
+                className="panel relative flex-none  bg-white/80 backdrop-blur-sm border border-dashed border-gray-200 p-2 md:p-3 rounded-lg"
               >
                 <div className="relative overflow-hidden group rounded-lg">
                   <img
-                    className="object-cover w-full h-[350px] transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover w-full h-[280px] transition-transform duration-700 group-hover:scale-110"
                     src={service.img}
                     alt={service.title}
                   />
@@ -207,7 +116,7 @@ const Service = () => {
                           {service.description}
                         </p>
                         <Link
-                    to={`/services/${service.slug}`}
+                         to={`/services/${service.slug}`}
                           className="rounded-md uppercase px-4 py-2 bg-primary-1 text-white text-[10px] font-DMmono hover:bg-primary-2 transition-colors duration-300"
                         >
                           Learn More
@@ -217,12 +126,14 @@ const Service = () => {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-          {/* mobile */}
+{/* mobile */}
 
-          <div className="block lg:hidden">
+          <div className="ml-2 py-10 block lg:hidden">
             <Swiper
               modules={[Pagination, A11y, Autoplay]}
               slidesPerView={1.1}
@@ -258,7 +169,7 @@ const Service = () => {
                               {service.description}
                             </p>
                             <Link
-                           to={`/services/${service.slug}`}
+                            to={`/services/${service.slug}`}
                               className="rounded-md uppercase px-4 py-2 bg-primary-1 text-white text-[10px] font-DMmono hover:bg-primary-2 transition-colors duration-300"
                             >
                               Learn More
@@ -273,15 +184,8 @@ const Service = () => {
             </Swiper>
           </div>
 
-          <div className="mt-10 w-fit mx-auto z-50 relative">
-            <button className="bg-primary-1 hover:bg-primary-2 uppercase active:scale-95 text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200">
-              More Services
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   );
 };
 
-export default Service;
+export default Services;

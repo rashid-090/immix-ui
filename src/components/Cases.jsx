@@ -62,7 +62,7 @@ const Cases = () => {
         </h1>
 
         {/* Tab Buttons Container */}
-        <div className="flex flex-wrap gap-2 md:gap-5 items-center justify-center mb-10 bg-[#111] w-fit mx-auto p-1 rounded-xl border border-gray-800">
+        <div className="flex flex-wrap gap-2 md:gap-5 items-center justify-center mb-10 bg-[#111] w-[90%] md:w-fit mx-auto p-1 rounded-xl border border-gray-800">
           {tabData.map((tab) => {
             const isActive = activeTab.id === tab.id;
             return (

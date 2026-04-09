@@ -3,6 +3,7 @@ import { Mail, ArrowRight, Facebook, Youtube, Instagram, Twitter } from "lucide-
 // tsParticles Imports
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; 
+import { Logo } from "../assets";
 
 export default function XecureFooter() {
   const [email, setEmail] = useState("");
@@ -84,13 +85,13 @@ export default function XecureFooter() {
     <footer className="relative w-full text-white bg-[#060915] font-DMmono overflow-hidden">
       
       {/* ── TSPARTICLES LAYER ── */}
-      {init && (
+      {/* {init && (
         <Particles
           id="tsparticles-footer"
           className="absolute inset-0 z-0 pointer-events-none"
           options={particlesOptions}
         />
-      )}
+      )} */}
 
       {/* ── CONTENT WRAPPER (z-10 to stay above particles) ── */}
       <div className="relative z-10 w-11/12 xl:w-10/12 mx-auto">
@@ -108,9 +109,9 @@ export default function XecureFooter() {
               We help organizations stay ahead of threats.
             </p>
             <button
-              className="font-light tracking-wider bg-indigo-600 hover:bg-indigo-700 text-indigo-100 text-xs px-5 py-3 rounded-md transition-all duration-200"
+              className="font-light tracking-wider bg-primary-1 hover:bg-primary-2 text-indigo-100 text-xs px-5 py-3 rounded-md transition-all duration-200"
             >
-              SETUP A DISCOVERY CALL
+             Setup A Discovery Call
             </button>
           </div>
         </div>
@@ -121,18 +122,24 @@ export default function XecureFooter() {
 
             {/* Col 1 — Brand */}
             <div className="px-5 py-10 md:px-8 md:py-12 flex flex-col">
-              <h2 className="font-DMmono text-3xl">Immix</h2>
+              <div>
+                <img className="h-16 object-contain" src={Logo} alt="" />
+              </div>
 
              
 
               {/* Socials */}
-              <div className="flex items-center justify-between gap-5  md:gap-3 mt-7">
+              <div className="flex flex-col items-start justify-between gap-5  md:gap-3 mt-10">
                 <span className="text-gray-500 text-xs tracking-wider">
                   FOLLOW US
                 </span>
-                {socials.map(({ Icon }, i) => (
-                  <Icon key={i} size={17} className="text-gray-500 hover:text-white cursor-pointer transition-colors" />
+               <div className="flex gap-3 items-center ">
+                 {socials.map(({ Icon }, i) => (
+                 <a href="#" className="h-10 w-10 rounded-full border border-gray-500 hover:bg-white duration-500 grid place-items-center">
+                   <Icon key={i} size={17} className="text-gray-500 cursor-pointer transition-colors" />
+                 </a>
                 ))}
+               </div>
               </div>
             </div>
 
@@ -163,7 +170,7 @@ export default function XecureFooter() {
             </div>
 
             {/* Col 4 — Contact */}
-            <div className="px-5 py-10 md:px-8 md:py-12 flex flex-col items-start justify-center">
+            <div className="px-5 py-10 md:px-8 md:py-12 flex flex-col items-start justify-start">
               <h3 className="text-white font-medium tracking-widest mb-7 font-Inter">Contact</h3>
               <ul className="space-y-4">
                 {contact.map(({ label, value }) => (
@@ -184,7 +191,7 @@ export default function XecureFooter() {
         <div className="p-5 md:px-10 py-7 border border-dashed border-white/10 bg-[#060915]/60 backdrop-blur-md">
           <div className="flex flex-col-reverse md:flex-row justify-between text-center items-center gap-4 text-xs text-gray-500">
             <p>
-              Copyright © 2025 Immix | Powered by Dostudio
+              Copyright © 2025 Immix | <a href="https://dostudio.co.in" target="_blank" className="hover:text-indigo-300 cursor-pointer transition-colors">Powered by Dostudio</a>
             </p>
             <div className="flex gap-2">
               <span className="hover:text-indigo-300 cursor-pointer transition-colors">• Disclaimer</span>

@@ -4,7 +4,8 @@ import { Pagination, Autoplay, Navigation } from "swiper/modules";
 // Import React Icons
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi2";
 import { FiArrowUpRight } from "react-icons/fi";
-
+import { DataCenterColocation,CloudHosting,TelecomandNewtwork,Enterprise,Manage,ContentDelivery,Financial,ITHardware,AIinfra,PubliceSector,
+} from '../assets'
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -15,43 +16,43 @@ const Industries = () => {
   const industryData = [
   {
     title: "Data Centers & Colocation Providers",
-    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=800",
+    img: DataCenterColocation,
   },
   {
     title: "Cloud & Hosting Providers",
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800",
+    img: CloudHosting,
   },
   {
     title: "Telecom & Network Operators",
-    img: "https://images.unsplash.com/photo-1563770660941-20978e870813?q=80&w=800",
+    img: TelecomandNewtwork,
   },
   {
     title: "Enterprise IT & Global Corporates",
-    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800",
+    img: Enterprise,
   },
   {
     title: "Managed Service Providers (MSPs)",
-    img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800",
+    img: Manage,
   },
   {
     title: "Content Delivery Networks (CDNs)",
-    img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800",
+    img: ContentDelivery,
   },
   {
     title: "Financial & Mission-Critical Industries",
-    img: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=800",
+    img: Financial,
   },
   {
     title: "IT Hardware & Infrastructure Vendors",
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800",
+    img: ITHardware,
   },
   {
     title: "AI Infrastructure & HPC Providers",
-    img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800",
+    img: AIinfra,
   },
   {
     title: "Public Sector & Government",
-    img: "https://images.unsplash.com/photo-1517089534702-8a9b2da193c7?q=80&w=800",
+    img: PubliceSector,
   },
 ];
 
@@ -75,6 +76,7 @@ const Industries = () => {
           spaceBetween={24}
           slidesPerView={1}
           autoplay={{ delay: 5000 }}
+          loop={true}
           pagination={{
             clickable: true,
             el: ".custom-pagination",
@@ -93,6 +95,7 @@ const Industries = () => {
                   <img
                     src={item.img}
                     alt={item.title}
+                    loading="lazy"
                     className="w-full h-full object-cover overflow-hidden transition-transform duration-700 group-hover:scale-110"
                   />
 
@@ -139,13 +142,10 @@ const Industries = () => {
 
                 {/* Content */}
                 <div className="px-1">
-                  <h3 className="font-Inter text-xl text-slate-900 mb-2 leading-tight">
+                  <h3 className="font-Inter text-xl text-slate-900 mb-3 leading-tight">
                     {item.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-3 font-DMmono">
-                    Fill out the form and the algorithm will offer the right
-                    team of experts
-                  </p>
+             
 
                   <div className="bg-gradient-to-r from-primary-1 to-transparent w-20 h-[3px]"></div>
                 </div>

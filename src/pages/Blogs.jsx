@@ -61,7 +61,7 @@ const blogData = [
 
       {/* --- BLOGS SECTION --- */}
       <section className="w-11/12 xl:w-10/12 mx-auto py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
           {/* 2. Map through the data */}
           {blogData.map((blog) => (
             <Link
@@ -74,7 +74,7 @@ const blogData = [
             >
               <div className="relative overflow-hidden group rounded-lg">
                 <img
-                  className="object-cover w-full h-[250px] transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover w-full h-[250px] xl:h-[300px] transition-transform duration-700 group-hover:scale-110"
                   src={blog.image}
                   alt={blog.title}
                 />

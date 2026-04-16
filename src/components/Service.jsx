@@ -245,6 +245,7 @@ const Service = () => {
                     className="object-cover w-full h-[350px] transition-transform duration-700 group-hover:scale-110"
                     src={service.img}
                     alt={service.title}
+                    loading="lazy"
                   />
                   <div className="absolute bottom-2 left-4 right-4 rounded-lg bg-black/40 text-white backdrop-blur-md p-3 z-10 border border-white/10 transition-all duration-500">
                     <h4 className="text-sm md:text-xl font-semibold line-clamp-1 group-hover:line-clamp-none transition-all duration-200">

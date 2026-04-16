@@ -58,7 +58,7 @@ const Loader = ({ isLoading }) => {
             <img 
               src={Logo} 
               alt="Loading..." 
-              className="h-16 w-auto object-contain" // Adjust size as needed
+              className="h-12 md:h-16 w-auto object-contain" // Adjust size as needed
             />
             
             

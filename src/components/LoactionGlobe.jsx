@@ -10,9 +10,9 @@ export default function Globe() {
   const phiRef = useRef(0);
   const thetaRef = useRef(0.3);
   const isDraggingRef = useRef(false);
-  const lastMousePos = useRef({ x: 0, y: 0 });
+  const lastPos = useRef({ x: 0, y: 0 }); // Renamed from lastMousePos for generic use
 
- const markers = [
+  const markers = [
     { id: "usa", location: [38.9, -77.04], name: "USA" },
     { id: "brazil", location: [-15.79, -47.88], name: "BRAZIL" },
     { id: "argentina", location: [-34.6, -58.38], name: "ARGENTINA" },
@@ -69,8 +69,6 @@ export default function Globe() {
     { from: [-35.28, 149.13], to: [38.9, -77.04] }, // Australia → USA (closes Pacific loop)
   ];
 
-  
-  // Flag: is the globe visible in viewport?
   const isVisible = useRef(true);
 
   useEffect(() => {
@@ -80,7 +78,6 @@ export default function Globe() {
 
     const resizeGlobe = () => {
       const width = containerRef.current.clientWidth;
-
       if (globeRef.current) globeRef.current.destroy();
 
       globeRef.current = createGlobe(canvas, {
@@ -109,21 +106,17 @@ export default function Globe() {
 
     resizeGlobe();
 
-    // Only animate if in viewport or dragging
     const animate = () => {
       if (!globeRef.current) return;
-
       if (isVisible.current || isDraggingRef.current) {
         if (!isDraggingRef.current) {
           phiRef.current += 0.002;
         }
-
         globeRef.current.update({
           phi: phiRef.current,
           theta: thetaRef.current,
         });
       }
-
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -147,6 +140,22 @@ export default function Globe() {
     };
   }, []);
 
+  const handleStart = (x, y) => {
+    isDraggingRef.current = true;
+    lastPos.current = { x, y };
+  };
+
+  const handleMove = (x, y) => {
+    if (!isDraggingRef.current) return;
+    const deltaX = x - lastPos.current.x;
+    const deltaY = y - lastPos.current.y;
+
+    phiRef.current += deltaX * 0.005;
+    thetaRef.current += deltaY * 0.005;
+    thetaRef.current = Math.max(-0.8, Math.min(0.8, thetaRef.current));
+    lastPos.current = { x, y };
+  };
+
   const stopDragging = () => {
     isDraggingRef.current = false;
   };
@@ -154,21 +163,19 @@ export default function Globe() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full max-w-[700px] aspect-square mx-auto cursor-grab active:cursor-grabbing select-none"
-      onMouseDown={(e) => {
-        isDraggingRef.current = true;
-        lastMousePos.current = { x: e.clientX, y: e.clientY };
-      }}
-      onMouseMove={(e) => {
-        if (!isDraggingRef.current) return;
-
-        phiRef.current += (e.clientX - lastMousePos.current.x) * 0.005;
-        thetaRef.current += (e.clientY - lastMousePos.current.y) * 0.005;
-        thetaRef.current = Math.max(-0.8, Math.min(0.8, thetaRef.current));
-        lastMousePos.current = { x: e.clientX, y: e.clientY };
-      }}
+      className="relative w-full max-w-[700px] aspect-square mx-auto cursor-grab active:cursor-grabbing select-none touch-none"
+      onMouseDown={(e) => handleStart(e.clientX, e.clientY)}
+      onMouseMove={(e) => handleMove(e.clientX, e.clientY)}
       onMouseUp={stopDragging}
       onMouseLeave={stopDragging}
+      // Mobile Touch Support
+      onTouchStart={(e) => {
+        if (e.touches[0]) handleStart(e.touches[0].clientX, e.touches[0].clientY);
+      }}
+      onTouchMove={(e) => {
+        if (e.touches[0]) handleMove(e.touches[0].clientX, e.touches[0].clientY);
+      }}
+      onTouchEnd={stopDragging}
     >
       <canvas ref={canvasRef} className="w-full h-full" />
 
@@ -193,7 +200,7 @@ export default function Globe() {
               </span>
             </div>
             <div className="w-px h-5 bg-white/40" />
-            <div className="w-1.5 h-1.5 bg-[#5F5EFD]  rounded-full" />
+            <div className="w-1.5 h-1.5 bg-[#5F5EFD] rounded-full" />
           </div>
         </div>
       ))}

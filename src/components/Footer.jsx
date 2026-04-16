@@ -1,13 +1,47 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Mail, ArrowRight, Facebook, Youtube, Instagram, Twitter } from "lucide-react";
+import { Mail, ArrowRight, Facebook, Youtube, Instagram, Twitter, ArrowUp } from "lucide-react";
 // tsParticles Imports
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; 
 import { Logo } from "../assets";
+import { motion, AnimatePresence } from "framer-motion"; // Added Framer Motion
 
+import { Link } from "react-router-dom";
 export default function XecureFooter() {
   const [email, setEmail] = useState("");
   const [init, setInit] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+
+
+  // 1. Logic to show/hide button based on scroll depth
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show button after scrolling down 400px
+      if (window.scrollY > 400) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // 2. Smooth scroll function
+const scrollToTop = (e) => {
+    // Prevent any bubbling that might interfere
+    if (e) e.preventDefault();
+
+    // Force the scroll to happen on the next animation frame
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  };
 
   // 1. Initialize the particles engine once
   useEffect(() => {
@@ -67,12 +101,29 @@ export default function XecureFooter() {
     detectRetina: true,
   }), []);
 
-  const services = ["Cloud security", "Web security", "Penetration Testing", "Network security"];
-  const aboutLinks = ["About", "Careers", "Press", "Contact us"];
+const services = [
+  { name: "Deployment & Implementation", url: "/services/deployment-implementation" },
+  { name: "Remote Hands & On-Site Technical..", url: "/services/remote-hands-support" },
+  { name: "Network Operations & Maintenance", url: "/services/network-operations" },
+  { name: "Logistics, Procurement & Asset..", url: "/services/logistics-asset-management" },
+  { name: "Testing, Validation & Quality..", url: "/services/testing-quality-assurance" },
+  { name: "Secure IT Asset Disposal & Data..", url: "/services/secure-it-disposal" },
+  { name: "Project Management & Service..", url: "/services/project-management" },
+];
+
+const aboutLinks = [
+  { name: "About", url: "/about-us" },
+  { name: "Services", url: "/services" },
+  { name: "Careers", url: "/careers" },
+  { name: "Blog", url: "/blog" },
+  { name: "Contact us", url: "/contact-us" }
+];
+
+
   const contact = [
-    { label: "E", value: "xecure@mail.com" },
-    { label: "P", value: "+888-807-5000" },
-    { label: "A", value: "Jl. Sokarno-hatta 03" },
+    { label: "Email", value: "support@immixtechnologies.com" },
+    { label: "Phone", value: "+60 17 317 1211" },
+    { label: "Address", value: "Singapore - HQ #04-71, Lobby D, Ubi Tech Park, Singapore - 408564." },
   ];
   const socials = [
     { Icon: Facebook },
@@ -93,6 +144,24 @@ export default function XecureFooter() {
         />
       )} */}
 
+
+      {/* ── SCROLL TO TOP BUTTON ── */}
+      <AnimatePresence>
+        {showScrollButton && (
+          <motion.button
+            initial={{ opacity: 0, y: 20, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.8 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+     onClick={(e) => scrollToTop(e)}
+            className="fixed bottom-16 xl:bottom-8 cursor-pointer right-8 z-[99] bg-indigo-600 hover:bg-indigo-500 text-white p-2.5 rounded-lg shadow-lg shadow-indigo-500/20 transition-colors border border-white/10"
+          >
+            <ArrowUp size={16} />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
       {/* ── CONTENT WRAPPER (z-10 to stay above particles) ── */}
       <div className="relative z-10 w-11/12 xl:w-10/12 mx-auto">
         
@@ -108,19 +177,21 @@ export default function XecureFooter() {
             <p className="text-gray-400 text-sm mb-12 tracking-wider">
               We help organizations stay ahead of threats.
             </p>
-            <button
+            <a
+            href="tel:+60 17 317 1211"
               className="font-light tracking-wider bg-primary-1 hover:bg-primary-2 text-indigo-100 text-xs px-5 py-3 rounded-md transition-all duration-200"
             >
              Setup A Discovery Call
-            </button>
+            </a>
           </div>
         </div>
 
         {/* ── FOOTER COLUMNS ── */}
         <div className="border border-dashed border-white/10 bg-[#060915]/10 backdrop-blur-sm">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-x divide-dashed divide-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-x divide-dashed divide-white/10">
 
-            {/* Col 1 — Brand */}
+          
+          {/* Col 1 — Brand */}
             <div className="px-5 py-10 md:px-8 md:py-12 flex flex-col">
               <div>
                 <img className="h-16 object-contain" src={Logo} alt="" />
@@ -143,33 +214,24 @@ export default function XecureFooter() {
               </div>
             </div>
 
-            {/* Col 2 — Services */}
-            <div className="px-5 py-10 md:px-8 md:py-12 flex flex-col items-start justify-center">
-              <h3 className="text-white font-medium tracking-widest mb-7 font-Inter">Services</h3>
-              <ul className="space-y-4">
-                {services.map((item) => (
-                  <li key={item} className="flex gap-3 text-gray-500 font-light text-sm hover:text-white cursor-pointer transition-colors">
-                    <span className="text-indigo-500 shrink-0 mt-px">•</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Col 3 — About us */}
+            {/* Col 1 — About us */}
             <div className="px-5 py-10 md:px-8 md:py-12 flex flex-col items-start justify-center">
               <h3 className="text-white font-medium tracking-widest mb-7 font-Inter">About us</h3>
               <ul className="space-y-4">
                 {aboutLinks.map((item) => (
-                  <li key={item} className="flex gap-3 text-gray-500 font-light text-sm hover:text-white cursor-pointer transition-colors">
+                  <Link to={item.url} key={item} className="flex gap-3 text-gray-500 font-light text-sm hover:text-white cursor-pointer transition-colors">
                     <span className="text-indigo-500 shrink-0 mt-px">•</span>
-                    {item}
-                  </li>
+                    {item.name}
+                  </Link>
                 ))}
               </ul>
             </div>
 
-            {/* Col 4 — Contact */}
+        
+
+            
+
+            {/* Col 3 — Contact */}
             <div className="px-5 py-10 md:px-8 md:py-12 flex flex-col items-start justify-start">
               <h3 className="text-white font-medium tracking-widest mb-7 font-Inter">Contact</h3>
               <ul className="space-y-4">
@@ -182,6 +244,7 @@ export default function XecureFooter() {
                   </li>
                 ))}
               </ul>
+            
             </div>
 
           </div>

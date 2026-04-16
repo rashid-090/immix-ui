@@ -62,6 +62,7 @@ const Counters = () => {
             modules={[Autoplay, Pagination]}
             spaceBetween={20}
             slidesPerView={2}
+            loop={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
             className="pb-10" // Space for pagination dots

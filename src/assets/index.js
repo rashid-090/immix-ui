@@ -21,6 +21,16 @@ import Testing from './images/service-new/Testing, Validation & Quality Assuranc
 import Secure from './images/service-new/Secure IT Asset Disposal.webp'
 import ProjectManagement from './images/service-new/Project Management & Service Delivery.webp'
 
+import DataCenterColocation from './images/industry/Data Centers & Colocation Providers.webp'
+import CloudHosting from './images/industry/Cloud & Hosting Providers.webp'
+import TelecomandNewtwork from './images/industry/Telecom & Network Operators.webp'
+import Enterprise from './images/industry/Enterprise IT & Global Corporates.webp'
+import Manage from './images/industry/Managed Service Providers.webp'
+import ContentDelivery from './images/industry/Content Delivery Networks.webp'
+import Financial from './images/industry/Financial & Mission-Critical Industries.webp'
+import ITHardware from './images/industry/IT Hardware & Infrastructure Vendors.webp'
+import AIinfra from './images/industry/AI Infrastructure & HPC Providers.webp'
+import PubliceSector from './images/industry/Public Sector & Government.webp'
 
 import highsecurity from './images/centers/high-security.svg'
 import fasterconnection from './images/centers/faster-connection.svg'
@@ -54,13 +64,19 @@ import Clinet24 from './images/clients/cl24.png'
 import Clinet25 from './images/clients/cl25.png'
 import Clinet26 from './images/clients/cl26.png'
 
+import Tab1 from './images/Remote Infrastructure.webp'
+import Tab2 from './images/Infrastructure as A Service.webp'
+
+import getinBg from '../assets/getinbg.webp'
 
 import CDN from './images/globeside.webp'
 import BIGDATA from './images/bigdata.webp'
 
 export {
     Logo,Homeicon,Shape1,videoglobe,abtbg,
-    headerbg,
+    headerbg,getinBg,
+    Tab1,Tab2,
+    DataCenterColocation,CloudHosting,TelecomandNewtwork,Enterprise,Manage,ContentDelivery,Financial,ITHardware,AIinfra,PubliceSector,
     Deployment,RemoteHands,NetworkOperations,Logistics,Testing,Secure,ProjectManagement,
     highsecurity,fasterconnection,resilience,seamlessconnection,
     Clinet1,Clinet2,Clinet3,Clinet4,Clinet5,Clinet6,Clinet7,Clinet8,Clinet9,Clinet10,Clinet11,Clinet12,Clinet13,Clinet14,Clinet15,Clinet16,Clinet17,Clinet18,Clinet19,Clinet20,Clinet21,Clinet22,Clinet23,Clinet24,Clinet25,Clinet26,

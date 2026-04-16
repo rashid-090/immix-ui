@@ -171,11 +171,11 @@ const ServicesInner = () => {
               <p className="font-DMmono mt-5 text-slate-600 leading-relaxed">
                 {service.description}
               </p>
-              <div className="mt-10">
+              <div className="mt-10 text-sm md:text-base">
                 {service.points.map((point, index) => (
                   <div key={index} className="flex items-center gap-3 mt-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-primary-1 to-transparent" />
-                    <p className="text-sm font-DMmono text-slate-600 leading-relaxed">
+                    <p className=" font-DMmono text-slate-600 leading-relaxed">
                       {point}
                     </p>
                   </div>

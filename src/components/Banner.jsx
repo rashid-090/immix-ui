@@ -24,7 +24,7 @@ export default function CyberBanner() {
               [ Smarter Data Center Solutions ]
             </h2>
           </div>
-          <h1 className="text-3xl md:text-7xl capitalize font-Inter text-slate-900 ">
+          <h1 className="text-4xl md:text-7xl capitalize font-Inter text-slate-900 ">
             Secure & Scalable <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-1 to-primary-2">
               Data Center Solutions
@@ -52,6 +52,7 @@ export default function CyberBanner() {
         <div className="absolute bottom-0  left-1/2 transform -translate-x-1/2 w-full flex justify-center">
           <video
             src={videoglobe}
+            poster="../assets/images/bannbgpos.webp"
             autoPlay
             loop
             muted

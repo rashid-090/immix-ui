@@ -36,7 +36,7 @@ const XecureNavbar = () => {
   return (
     <nav 
       ref={navRef}
-      className="fixed top-0 left-0 w-full bg-white/10 backdrop-blur-sm border-b border-gray-200 px-4 py-3 z-50"
+      className="fixed top-0 left-0 w-full bg-white/10 backdrop-blur-sm border-b border-transparent px-4 py-3 z-50"
     >
       <div className="w-[95%] mx-auto flex items-center justify-between">
 

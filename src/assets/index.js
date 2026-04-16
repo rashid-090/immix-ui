@@ -13,6 +13,14 @@ import CoLocationServicesImg from '../assets/images/services/Co-Location Service
 import DataCenterMigrationImg from '../assets/images/services/Data-center-migration.webp'
 import ManagedHostingImg from '../assets/images/services/Managed-Hosting.webp'
 
+import Deployment from './images/service-new/Deployment & Implementation.webp'
+import RemoteHands from './images/service-new/Remote Hands - On-Site Technical.webp'
+import NetworkOperations from './images/service-new/Network Operations & Maintenance.webp'
+import Logistics from './images/service-new/Logistics, Procurement & Asset Management.webp'
+import Testing from './images/service-new/Testing, Validation & Quality Assurance.webp'
+import Secure from './images/service-new/Secure IT Asset Disposal.webp'
+import ProjectManagement from './images/service-new/Project Management & Service Delivery.webp'
+
 
 import highsecurity from './images/centers/high-security.svg'
 import fasterconnection from './images/centers/faster-connection.svg'
@@ -53,6 +61,7 @@ import BIGDATA from './images/bigdata.webp'
 export {
     Logo,Homeicon,Shape1,videoglobe,abtbg,
     headerbg,
+    Deployment,RemoteHands,NetworkOperations,Logistics,Testing,Secure,ProjectManagement,
     highsecurity,fasterconnection,resilience,seamlessconnection,
     Clinet1,Clinet2,Clinet3,Clinet4,Clinet5,Clinet6,Clinet7,Clinet8,Clinet9,Clinet10,Clinet11,Clinet12,Clinet13,Clinet14,Clinet15,Clinet16,Clinet17,Clinet18,Clinet19,Clinet20,Clinet21,Clinet22,Clinet23,Clinet24,Clinet25,Clinet26,
     CDN,BIGDATA,

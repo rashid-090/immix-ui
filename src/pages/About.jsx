@@ -103,7 +103,7 @@ const About = () => {
                   className="w-full h-60 xl:h-96 object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-5 rounded-xl z-20 shadow-xl hidden md:block">
+              <div className="absolute -bottom-6 -right-6 bg-primary-1 text-center text-white p-5 rounded-xl z-20 shadow-xl hidden md:block">
                 <p className="text-4xl ">20+</p>
                 <p className="text-xs opacity-80">
                   Years Experience

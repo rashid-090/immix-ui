@@ -37,6 +37,7 @@ const ContactForm = () => {
               <input 
                 type="text" 
                 placeholder="Name"
+                required
                 className="w-full bg-gray-200 border-none rounded-lg px-4 py-3.5 placeholder-gray-600 focus:ring-2 focus:ring-primary-1 outline-none transition-all"
               />
             </div>
@@ -45,6 +46,7 @@ const ContactForm = () => {
               <input 
                 type="email" 
                 placeholder="Email"
+                required
                 className="w-full bg-gray-200 border-none rounded-lg px-4 py-3.5 placeholder-gray-600 focus:ring-2 focus:ring-primary-1 outline-none transition-all"
               />
             </div>
@@ -53,12 +55,13 @@ const ContactForm = () => {
               <input 
                 type="tel" 
                 placeholder="Mobile Number"
+                required
                 className="w-full bg-gray-200 border-none rounded-lg px-4 py-3.5 placeholder-gray-600 focus:ring-2 focus:ring-primary-1 outline-none transition-all"
               />
             </div>
 
             <div>
-              <select className="w-full bg-gray-200 border-none rounded-lg px-4 py-3.5 text-gray-700 focus:ring-2 focus:ring-primary-1 outline-none appearance-none transition-all">
+              <select required className="w-full bg-gray-200 border-none rounded-lg px-4 py-3.5 text-gray-700 focus:ring-2 focus:ring-primary-1 outline-none appearance-none transition-all">
                 <option>Select Service</option>
                 <option>New Website Design</option>
                 <option>Data Center Solutions</option>
@@ -78,7 +81,7 @@ const ContactForm = () => {
 
             <button 
               type="submit" 
-              className="w-fit uppercase bg-primary-1 hover:bg-primary-2 active:scale-95 text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200 group"
+              className="w-fit cursor-pointer uppercase bg-primary-1 hover:bg-primary-2 active:scale-95 text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200 group"
             >
               Send Message
              

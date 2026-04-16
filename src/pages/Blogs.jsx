@@ -10,24 +10,24 @@ const blogData = [
     title: "Optimizing PUE: Strategies for Greener Data Centers",
     excerpt: "Learn how modern cooling techniques and AI-driven thermal management are driving Power Usage Effectiveness (PUE) toward 1.0.",
     image: DataCenterSecurityImg, 
-    link: "/blog/optimizing-pue-efficiency",
-    date: "Oct 12, 2023"
+    date: "Oct 12, 2023",
+    slug: "optimizing-pue-strategies-for-greener-data-centers"
   },
   {
     id: 2,
     title: "Tier IV Certification: What It Means for Your Uptime",
     excerpt: "A deep dive into fault-tolerant infrastructure and why Tier IV standards are the gold standard for mission-critical operations.",
     image: SystemInfrastructureImg,
-    link: "/blog/tier-iv-uptime-standards",
     date: "Nov 05, 2023"
+    ,slug: "tier-iv-certification-what-it-means-for-your-uptime"
   },
   {
     id: 3,
     title: "Edge Computing and the Future of Low Latency",
     excerpt: "Discover how moving processing power closer to the end-user is revolutionizing IoT, autonomous vehicles, and real-time analytics.",
     image: StructuredCablingSolutionsImg,
-    link: "/blog/edge-computing-latency",
-    date: "Dec 01, 2023"
+    date: "Dec 01, 2023",
+    slug: "edge-computing-and-the-future-of-low-latency"
   },
   
 ];
@@ -53,7 +53,7 @@ const blogData = [
           <h2 className="text-3xl md:text-5xl">News & Updates</h2>
           <div className="mt-3 text-sm md:text-base">
             <span className="font-DMmono">
-              <Link to="/" className="hover:text-primary-1">Home</Link> | Blogs
+              <Link to="/" className="hover:text-primary-1">Home</Link> | Blog
             </span>
           </div>
         </div>
@@ -64,6 +64,10 @@ const blogData = [
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* 2. Map through the data */}
           {blogData.map((blog) => (
+            <Link
+              key={blog.id}
+              to={`/blog/${blog.slug}`}
+              >
             <div 
               key={blog.id} 
               className="panel relative flex flex-col bg-white/80 backdrop-blur-sm border border-dashed border-gray-200 p-3 rounded-lg hover:shadow-lg transition-shadow"
@@ -85,7 +89,7 @@ const blogData = [
                 </p>
                 <div>
                   <Link
-                    to={'#'}
+                    to={`/blog/${blog.slug}`}
                     className="mt-5 inline-block rounded-md uppercase px-5 py-2 bg-primary-1 text-white text-[10px] font-DMmono hover:bg-primary-2 transition-colors duration-300"
                   >
                     Read More
@@ -93,6 +97,7 @@ const blogData = [
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </div>
       </section>

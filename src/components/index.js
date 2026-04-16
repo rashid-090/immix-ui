@@ -8,15 +8,18 @@ import Getintouch from "./Getintouch";
 import LoactionGlobe from "./LoactionGlobe";
 import ClinetsLogo from "./ClinetsLogo";
 import ContactForm from "./ContactForm";
+import NotFound from "./NotFound";
+
 export {
-    Banner,
-    Service,
-    Industries,
-    Cases,
-    Counters,
-    DataCenter,
-    Getintouch,
-LoactionGlobe,
-ClinetsLogo,
-ContactForm
-}
+  Banner,
+  Service,
+  Industries,
+  Cases,
+  Counters,
+  DataCenter,
+  Getintouch,
+  LoactionGlobe,
+  ClinetsLogo,
+  ContactForm,
+  NotFound,
+};

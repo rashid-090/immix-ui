@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { abtbg } from "../assets";
 import { IoIosCheckbox } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const tabData = [
   {
@@ -142,13 +143,15 @@ const Cases = () => {
                 ))}
               </div>
 
+              <Link to={'/about-us'}>
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-primary-1 hover:bg-primary-2 active:scale-95 text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200 w-fit mt-10"
+                className="bg-primary-1 hover:bg-primary-2 cursor-pointer active:scale-95 text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200 w-fit mt-10"
               >
                 GET STARTED
               </motion.button>
+              </Link>
             </div>
           </motion.div>
         </AnimatePresence>

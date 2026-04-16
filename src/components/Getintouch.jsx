@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Getintouch = () => {
   // Replace this with your actual image path
@@ -29,14 +30,15 @@ const Getintouch = () => {
            Looking for a First-Class<br className='hidden md:block'/> Data center support?
           </h2>
 
-          {/* CTA Button */}
+          {/* CTA Button */}\<Link to="/contact-us">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-primary-1 hover:bg-primary-2 active:scale-95 text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200"
+            className="bg-primary-1 cursor-pointer hover:bg-primary-2 active:scale-95 text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200"
           >
-            Talk to an Expert
+           Talk to an Expert
           </motion.button>
+          </Link>
         </motion.div>
       </div>
     </section>

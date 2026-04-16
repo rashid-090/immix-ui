@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Homeicon, Shape1, videoglobe } from "../assets";
+import { Link } from "react-router-dom";
 
 export default function CyberBanner() {
   const [loaded, setLoaded] = useState(false);
@@ -32,21 +33,18 @@ export default function CyberBanner() {
 
           {/* Subtext */}
           <p className="mt-8 text-slate-700 max-w-xl text-sm md:text-base font-light font-DMmono leading-relaxed">
-            Empower your business with IMMIX Cloud — the most reliable, secure,
-            and scalable cloud hosting platform. Our adaptive cloud solutions
-            grow with your business, ensuring speed, flexibility, and top-tier
-            data security.
+           Supporting next-generation infrastructure including AI farms, GPU clusters, and high-performance computing environments across global data centers.
           </p>
 
           {/* Buttons */}
           <div className="mt-12 flex  items-center gap-5">
-            <button className="bg-primary-1 hover:bg-primary-2 active:scale-95 text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200">
+            <Link to={'/about-us'} className="bg-primary-1 hover:bg-primary-2 active:scale-95 text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200">
               GET STARTED
-            </button>
+            </Link>
 
-            <button className="border border-gray-300 bg-white hover:bg-primary-2 hover:text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200">
+            <Link to={'/contact-us'} className="border border-gray-300 bg-white hover:bg-primary-2 hover:text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200">
               GET A QUOTE
-            </button>
+            </Link>
           </div>
         </div>
 

@@ -1,12 +1,7 @@
 import React from "react";
 import { headerbg } from "../assets";
 import {
-  DataCenterSecurityImg,
-  SystemInfrastructureImg,
-  StructuredCablingSolutionsImg,
-  CoLocationServicesImg,
-  DataCenterMigrationImg,
-  ManagedHostingImg,
+Deployment,RemoteHands,NetworkOperations,Logistics,Testing,Secure,ProjectManagement,
 } from "../assets";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,55 +11,108 @@ import "swiper/css/pagination";
 
 const Services = () => {
   const bgImage = headerbg;
-  const allServices = [
+ const allServices = [
     {
-        slug: "data-center-security",
-      title: "Data Center Security",
-      img: DataCenterSecurityImg,
-      description:
-        "Protecting your data center is critical in today's landscape of advanced cyber threats.",
-  
-    },
-    {
-        slug: "system-infrastructure",
-      title: "System Infrastructure",
-      img: SystemInfrastructureImg,
-      description:
-        "At Immix Technologies, we design and maintain an integrated system infrastructure.",
-
-    },
-    {
-        slug: "structured-cabling",
-      title: "Structured Cabling",
-      img: StructuredCablingSolutionsImg,
-      description:
-        "Immix Technologies delivers state-of-the-art structured cabling solutions.",
-     
-    },
-    {
-        slug: "co-location-services",
-      title: "Co-Location Services",
-      img: CoLocationServicesImg,
-      description:
-        "Immix Technologies operates high-end data centers worldwide.",
-   
-    },
-    {
-        slug: "data-center-migration",
-      title: "Data Center Migration",
-      img: DataCenterMigrationImg,
-      description:
-        "Expert team ensures seamless data center migrations, minimizing downtime.",
-  
-    },
-    {
-        slug: "managed-hosting",
-      title: "Managed Hosting",
-      img: ManagedHostingImg,
-      description:
-        "Offers fully managed hosting solutions, giving you secure access to hardware.",
-   
-    },
+    slug: "deployment-implementation",
+    title: "Deployment & Implementation",
+    img: Deployment,
+    description:
+      "We ensure seamless installation and commissioning of your infrastructure with precision and adherence to global standards.",
+    points: [
+      "Rack & Stack Implementation",
+      "Server, Storage & Network Installation",
+      "Structured Cabling (Fibre & Copper)",
+      "Cross-connect Setup",
+      "Power Connectivity & Initial Configuration",
+      "DWDM & Optical Network Deployment",
+    ],
+  },
+  {
+    slug: "remote-hands-support",
+    title: "Remote Hands & On-Site Technical Support",
+    img: RemoteHands,
+    description:
+      "Reliable, real-time technical assistance delivered by experienced engineers — whenever and wherever you need it.",
+    points: [
+      "24/7 Remote Hands Support",
+      "Smart Hands / On-site Support",
+      "Remote Eyes Assistance",
+      "On-demand Data Center Engineers",
+      "Real-time Troubleshooting Support",
+    ],
+  },
+  {
+    slug: "network-operations",
+    title: "Network Operations & Maintenance",
+    img: NetworkOperations,
+    description:
+      "Proactive monitoring and expert support to ensure maximum uptime and performance.",
+    points: [
+      "Network Monitoring & Infrastructure Management",
+      "Configuration, Upgrades & Change Management",
+      "Preventive & Corrective Maintenance",
+      "Break-Fix & Emergency Support",
+      "Live Network Troubleshooting",
+    ],
+  },
+  {
+    slug: "logistics-asset-management",
+    title: "Logistics, Procurement & Asset Management",
+    img: Logistics,
+    description:
+      "Efficient global logistics and asset handling to support your infrastructure lifecycle.",
+    points: [
+      "Equipment Sourcing & Procurement",
+      "Importer of Record (IOR) Services",
+      "Shipping, Receiving & Last-Mile Delivery",
+      "Inventory Management & Warehousing",
+      "RMA Handling & Spare Parts Coordination",
+      "Employer of Record (EOR) Services",
+    ],
+  },
+  {
+    slug: "testing-quality-assurance",
+    title: "Testing, Validation & Quality Assurance",
+    img: Testing,
+    description:
+      "Ensuring every deployment meets performance, compliance, and reliability standards.",
+    points: [
+      "Fibre & Network Testing",
+      "Cable Audits & Certification",
+      "Deployment Validation & Reporting",
+      "Optical Network Audits",
+    ],
+  },
+  {
+    slug: "secure-it-disposal",
+    title: "Secure IT Asset Disposal & Data Destruction",
+    img: Secure,
+    description:
+      "Compliant and secure handling of end-of-life IT assets.",
+    points: [
+      "HDD/SSD Shredding (On-site & Off-site)",
+      "Certified Data Destruction & Degaussing",
+      "Asset Decommissioning & Disposal",
+      "Secure Chain of Custody",
+      "E-waste Disposal (Regulatory Compliant)",
+      "Certificate of Destruction (CoD)",
+    ],
+  },
+  {
+    slug: "project-management",
+    title: "Project Management & Service Delivery",
+    img: ProjectManagement,
+    description:
+      "End-to-end coordination ensuring smooth execution and accountability.",
+    points: [
+      "Site Readiness & Deployment Planning",
+      "Vendor & Stakeholder Coordination",
+      "SLA-based Service Delivery",
+      "Centralized Ticketing & Reporting",
+      "Dedicated Engineering Teams",
+      "Documentation & Final Handover",
+    ],
+  },
   ];
 
   return (
@@ -94,7 +142,7 @@ const Services = () => {
       </section>
 
       <section className="hidden lg:block w-11/12 xl:w-10/12 mx-auto py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {allServices.map((service, index) => (
             <Link to={`/services/${service.slug}`} key={index}>
               <div
@@ -102,7 +150,7 @@ const Services = () => {
               >
                 <div className="relative overflow-hidden group rounded-lg">
                   <img
-                    className="object-cover w-full h-[280px] transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover w-full h-[280px] xl:h-[350px] transition-transform duration-700 group-hover:scale-110"
                     src={service.img}
                     alt={service.title}
                   />

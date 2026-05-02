@@ -1,5 +1,5 @@
 import React from "react";
-import { headerbg } from "../assets";
+import { getinBg, headerbg } from "../assets";
 import {
 Deployment,RemoteHands,NetworkOperations,Logistics,Testing,Secure,ProjectManagement,
 } from "../assets";
@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const Services = () => {
-  const bgImage = headerbg;
+     const bgImage = getinBg;
  const allServices = [
     {
     slug: "deployment-implementation",

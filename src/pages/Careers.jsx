@@ -1,11 +1,11 @@
 import React from "react";
-import { headerbg } from "../assets";
+import { getinBg, headerbg } from "../assets";
 import { Link } from "react-router-dom";
 import { FaRegFilePdf } from "react-icons/fa";
 import { ArrowRight, MapPin, Clock } from "lucide-react";
 
 const Careers = () => {
-  const bgImage = headerbg;
+     const bgImage = getinBg;
   const jobs = [
     {
       id: 1,

@@ -11,13 +11,13 @@ import {
   Globe,
   Instagram,
 } from "lucide-react";
-import { headerbg } from "../assets";
+import { getinBg, headerbg } from "../assets";
 import { Link } from "react-router-dom";
 import { ContactForm } from "../components";
 
 const Contact = () => {
-  const bgImage = headerbg;
-
+    const bgImage = getinBg;
+    
   const locations = [
     {
       id: "singapore",

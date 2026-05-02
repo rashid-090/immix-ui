@@ -1,5 +1,5 @@
 import React from "react";
-import { headerbg , DataCenterSecurityImg,SystemInfrastructureImg,StructuredCablingSolutionsImg} from "../assets";
+import { headerbg , DataCenterSecurityImg,SystemInfrastructureImg,StructuredCablingSolutionsImg, getinBg} from "../assets";
 import { Link } from "react-router-dom";
 
 const Blogs = () => {
@@ -39,7 +39,7 @@ const blogData = [
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
-            backgroundImage: `url('${headerbg}')`,
+            backgroundImage: `url('${getinBg}')`,
             backgroundAttachment: "fixed",
             backgroundPosition: "bottom",
             backgroundRepeat: "no-repeat",

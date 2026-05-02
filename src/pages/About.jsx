@@ -1,10 +1,10 @@
 import React from "react";
 import { Shield, FolderClock, Users, Lock, CheckCircle, Lightbulb } from "lucide-react";
-import { CoLocationServicesImg, DataCenterSecurityImg, headerbg } from "../assets";
+import { CoLocationServicesImg, DataCenterSecurityImg, getinBg, headerbg } from "../assets";
 import { Link } from "react-router-dom";
 
 const About = () => {
-    const bgImage = headerbg;
+    const bgImage = getinBg;
 
   const values = [
     {
@@ -140,7 +140,7 @@ const About = () => {
                 <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-primary-1 mb-6 group-hover:bg-primary-1 group-hover:text-white transition-all duration-300">
                   {item.icon}
                 </div>
-                <h3 className="text-xl mb-3">{item.title}</h3>
+                <h3 className="xl:text-xl mb-3">{item.title}</h3>
                 <p className="text-slate-600 text-sm font-DMmono">
                   {item.desc}
                 </p>

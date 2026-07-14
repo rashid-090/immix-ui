@@ -54,19 +54,19 @@ const Cases = () => {
   const [activeTab, setActiveTab] = useState(tabData[0]);
 
   return (
-    <section className="w-full bg-black text-white overflow-hidden">
+    <section className="w-full bg-primary-1 text-white overflow-hidden">
       <div className="w-11/12 xl:w-10/12 mx-auto py-20 border border-dashed border-gray-800 border-t-0 border-b-0">
-        <div className="p-2 rounded-[5px] w-fit mx-auto mb-5 bg-primary-1/10">
+        {/* <div className="p-2 rounded-[5px] w-fit mx-auto mb-5 bg-primary-1/10">
           <h2 className="text-primary-1 tracking-wider font-DMmono uppercase text-[10px]">
             [ Smarter Data Center Solutions ]
           </h2>
-        </div>
+        </div> */}
         <h1 className="text-center text-3xl md:text-5xl capitalize font-Inter mb-10">
           Our Cases
         </h1>
 
         {/* Tab Buttons Container */}
-        <div className="flex flex-wrap gap-2 md:gap-5 items-center justify-center mb-10 bg-[#111] w-[90%] md:w-fit mx-auto p-1 rounded-xl border border-gray-800">
+        <div className="flex flex-wrap gap-2 md:gap-5 items-center justify-center mb-10 bg-primary-1 w-[90%] md:w-fit mx-auto p-1 rounded-xl border border-gray-700">
           {tabData.map((tab) => {
             const isActive = activeTab.id === tab.id;
             return (
@@ -74,14 +74,14 @@ const Cases = () => {
                 key={tab.id}
                 onClick={() => setActiveTab(tab)}
                 className={`relative px-5 py-3 text-xs w-full md:w-fit font-light transition-colors duration-300 z-10 ${
-                  isActive ? "text-white" : "text-gray-400 hover:text-gray-300"
+                  isActive ? "text-primary-1" : "text-white hover:text-gray-300"
                 }`}
               >
                 {/* The "Jumping" Background Effect */}
                 {isActive && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-primary-1 rounded-lg -z-10"
+                    className="absolute inset-0 bg-white rounded-lg -z-10"
                     transition={{ type: "spring", bounce: 0.35, duration: 0.6 }}
                   />
                 )}
@@ -140,7 +140,7 @@ const Cases = () => {
                     className="flex gap-3 items-start"
                   >
                     <div className="mt-1.5">
-                      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-primary-1 to-primary-2"></div>
+                      <div className="w-3 h-3 rounded-full bg-linear-to-r from-white to-gray-500"></div>
                     </div>
                     <p className="font-light font-DMmono text-gray-300 leading-snug">
                       {point}
@@ -153,7 +153,7 @@ const Cases = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-primary-1 hover:bg-primary-2 cursor-pointer active:scale-95 text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200 w-fit mt-10"
+                  className="bg-white text-primary-1 cursor-pointer active:scale-95  text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200 w-fit mt-10"
                 >
                   GET STARTED
                 </motion.button>

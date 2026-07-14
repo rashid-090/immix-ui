@@ -211,9 +211,9 @@ const Contact = () => {
                       <div className="p-2  text-slate-900 rounded-lg">
                         <MapPin size={20} className="text-white" />
                       </div>
-                      <p className=" text-slate-100">
+                      <a href="https://maps.app.goo.gl/UFmnCfgJWzZ5KBDf9" target="_blank" className=" transition-colors break-all underline underline-offset-4">
                         {activeTab.address}
-                      </p>
+                      </a>
                     </div>
 
                     <div className="flex gap-2 items-center">

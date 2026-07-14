@@ -19,11 +19,11 @@ export default function CyberBanner() {
           }`}
         >
           {/* Headline */}
-          <div className="p-2 rounded-[5px] mb-5 bg-primary-1/10">
+          {/* <div className="p-2 rounded-[5px] mb-5 bg-primary-1/10">
             <h2 className="text-[#3F37FF] tracking-wider font-DMmono uppercase text-[10px]">
               [ Smarter Data Center Solutions ]
             </h2>
-          </div>
+          </div> */}
           <h1 className="text-4xl md:text-7xl capitalize font-Inter text-slate-900 ">
             Secure & Scalable <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-1 to-primary-2">
@@ -33,7 +33,7 @@ export default function CyberBanner() {
 
           {/* Subtext */}
           <p className="mt-8 text-slate-700 max-w-xl text-sm md:text-base font-light font-DMmono leading-relaxed">
-           Supporting next-generation infrastructure including AI farms, GPU clusters, and high-performance computing environments across global data centers.
+           Supporting next-generation infrastructure including<br/> <span className="text-primary-1 font-medium">AI farms</span>, <span className="text-primary-1 font-medium">GPU clusters</span> & <span className="text-primary-1 font-medium">high-performance computing environments</span> across global data centers.
           </p>
 
           {/* Buttons */}
@@ -42,7 +42,7 @@ export default function CyberBanner() {
               GET STARTED
             </Link>
 
-            <Link to={'/contact-us'} className="border border-gray-300 bg-white hover:bg-primary-2 hover:text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200">
+            <Link to={'/contact-us'} className="border border-gray-300 bg-white hover:bg-primary-1 hover:text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200">
               GET A QUOTE
             </Link>
           </div>

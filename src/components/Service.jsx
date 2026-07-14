@@ -219,11 +219,11 @@ const Service = () => {
       {/* Content Container */}
       <div className="relative z-10 w-11/12 md:w-10/12 mx-auto flex flex-col justify-center items-center py-20 min-h-screen pointer-events-none">
         <div className="text-center mb-10 pointer-events-auto">
-          <div className="p-2 rounded-[5px] w-fit mx-auto  bg-primary-1/10">
+          {/* <div className="p-2 rounded-[5px] w-fit mx-auto  bg-primary-1/10">
             <h2 className="text-[#3F37FF] tracking-wider font-DMmono uppercase text-[10px]">
               [ End-to-End Data Center & Network Services ]
             </h2>
-          </div>
+          </div> */}
           <h1 className="text-3xl my-5 md:text-5xl capitalize font-Inter text-slate-900">
             Our Services
           </h1>
@@ -258,7 +258,7 @@ const Service = () => {
                         </p>
                         <Link
                     to={`/services/${service.slug}`}
-                          className="rounded-md uppercase px-4 py-2 bg-primary-1 text-white text-[10px] font-DMmono hover:bg-primary-2 transition-colors duration-300"
+                          className="rounded-md uppercase px-4 py-2 bg-white text-primary-1 text-[10px] font-DMmono hover:bg-primary-2 tracking-wider hover:text-white transition-colors duration-300"
                         >
                           Learn More
                         </Link>

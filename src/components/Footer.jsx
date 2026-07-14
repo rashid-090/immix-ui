@@ -3,7 +3,7 @@ import { Mail, ArrowRight, Facebook, Youtube, Instagram, Twitter, ArrowUp } from
 // tsParticles Imports
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; 
-import { Logo } from "../assets";
+import { Logo,Logowhite } from "../assets";
 import { motion, AnimatePresence } from "framer-motion"; // Added Framer Motion
 
 import { Link } from "react-router-dom";
@@ -121,9 +121,9 @@ const aboutLinks = [
 
 
   const contact = [
-    { label: "Email", value: "support@immixtechnologies.com" },
-    { label: "Phone", value: "+60 17 317 1211" },
-    { label: "Address", value: "Singapore - HQ #04-71, Lobby D, Ubi Tech Park, Singapore - 408564." },
+    { label: "Email", value: "support@immixtechnologies.com", link: "mailto:support@immixtechnologies.com" },
+    { label: "Phone", value: "+60 17 317 1211", link: "tel:+60173171211" },
+    { label: "Address", value: "Singapore - HQ #04-71, Lobby D, Ubi Tech Park, Singapore - 408564.", link: "https://maps.app.goo.gl/UFmnCfgJWzZ5KBDf9" },
   ];
   const socials = [
     { Icon: Facebook },
@@ -133,7 +133,7 @@ const aboutLinks = [
   ];
 
   return (
-    <footer className="relative w-full text-white bg-[#060915] font-DMmono overflow-hidden">
+    <footer className="relative w-full text-black bg-primary-1 font-DMmono overflow-hidden">
       
       {/* ── TSPARTICLES LAYER ── */}
       {/* {init && (
@@ -155,7 +155,7 @@ const aboutLinks = [
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
      onClick={(e) => scrollToTop(e)}
-            className="fixed bottom-16 xl:bottom-8 cursor-pointer right-8 z-[99] bg-indigo-600 hover:bg-indigo-500 text-white p-2.5 rounded-lg shadow-lg shadow-indigo-500/20 transition-colors border border-white/10"
+            className="fixed bottom-16 xl:bottom-8 cursor-pointer right-8 z-[99] bg-primary-2 text-white p-2.5 rounded-lg shadow-lg shadow-primary-2/50 transition-colors border border-white/10"
           >
             <ArrowUp size={16} />
           </motion.button>
@@ -179,7 +179,7 @@ const aboutLinks = [
             </p>
             <a
             href="tel:+60 17 317 1211"
-              className="font-light tracking-wider bg-primary-1 hover:bg-primary-2 text-indigo-100 text-xs px-5 py-3 rounded-md transition-all duration-200"
+              className="font-light tracking-wider bg-white border border-gray-500 hover:bg-primary-1 hover:text-white text-primary-1 text-xs px-5 py-3 rounded-md transition-all duration-200"
             >
              Setup A Discovery Call
             </a>
@@ -187,27 +187,27 @@ const aboutLinks = [
         </div>
 
         {/* ── FOOTER COLUMNS ── */}
-        <div className="border border-dashed border-white/10 bg-[#060915]/10 backdrop-blur-sm">
+        <div className="border border-dashed border-white/10 bg-primary-1 backdrop-blur-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-x divide-dashed divide-white/10">
 
           
           {/* Col 1 — Brand */}
             <div className="px-5 py-10 md:px-8 md:py-12 flex flex-col">
               <div>
-                <img className="h-16 object-contain" src={Logo} alt="" />
+                <img className="h-10 object-contain" src={Logowhite} alt="" />
               </div>
 
              
 
               {/* Socials */}
               <div className="flex flex-col items-start justify-between gap-5  md:gap-3 mt-10">
-                <span className="text-gray-500 text-xs tracking-wider">
+                <span className="text-gray-300 text-xs tracking-wider">
                   FOLLOW US
                 </span>
                <div className="flex gap-3 items-center ">
                  {socials.map(({ Icon }, i) => (
-                 <a href="#" className="h-10 w-10 rounded-full border border-gray-500 hover:bg-white duration-500 grid place-items-center">
-                   <Icon key={i} size={17} className="text-gray-500 cursor-pointer transition-colors" />
+                 <a href="#" className="h-10 w-10 rounded-full border border-gray-300 hover:bg-white duration-500 grid place-items-center">
+                   <Icon key={i} size={17} className="text-gray-300 cursor-pointer transition-colors" />
                  </a>
                 ))}
                </div>
@@ -219,8 +219,8 @@ const aboutLinks = [
               <h3 className="text-white font-medium tracking-widest mb-7 font-Inter">About us</h3>
               <ul className="space-y-4">
                 {aboutLinks.map((item) => (
-                  <Link to={item.url} key={item} className="flex gap-3 text-gray-500 font-light text-sm hover:text-white cursor-pointer transition-colors">
-                    <span className="text-indigo-500 shrink-0 mt-px">•</span>
+                  <Link to={item.url} key={item} className="flex gap-3 text-gray-400 font-light text-sm hover:text-white cursor-pointer transition-colors">
+                    <span className="text-white shrink-0 mt-px">•</span>
                     {item.name}
                   </Link>
                 ))}
@@ -235,11 +235,13 @@ const aboutLinks = [
             <div className="px-5 py-10 md:px-8 md:py-12 flex flex-col items-start justify-start">
               <h3 className="text-white font-medium tracking-widest mb-7 font-Inter">Contact</h3>
               <ul className="space-y-4">
-                {contact.map(({ label, value }) => (
-                  <li key={label} className="flex gap-3 text-gray-500 font-light text-sm hover:text-white cursor-pointer transition-colors">
-                    <span className="text-indigo-500 shrink-0">•</span>
+                {contact.map(({ label, value, link }) => (
+                  <li key={label} className="flex gap-3 text-gray-400 font-light text-sm hover:text-white cursor-pointer transition-colors">
+                    <span className="text-white shrink-0">•</span>
                     <span>
-                      <span className="text-gray-500">{label} :</span> {value}
+                      <span className="text-gray-400">{label} :</span> <a href={link} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                        {value}
+                      </a>
                     </span>
                   </li>
                 ))}
@@ -251,14 +253,14 @@ const aboutLinks = [
         </div>
 
         {/* ── BOTTOM BAR ── */}
-        <div className="p-5 md:px-10 py-7 border border-dashed border-white/10 bg-[#060915]/60 backdrop-blur-md">
-          <div className="flex flex-col-reverse md:flex-row justify-between text-center items-center gap-4 text-xs text-gray-500">
+        <div className="p-5 md:px-10 py-7 border border-dashed border-white/10 bg-primary-1 backdrop-blur-md">
+          <div className="flex flex-col-reverse md:flex-row justify-between text-center items-center gap-4 text-xs text-gray-300">
             <p>
-              Copyright © 2025 Immix | <a href="https://dostudio.co.in" target="_blank" className="hover:text-indigo-300 cursor-pointer transition-colors">Powered by Dostudio</a>
+              Copyright © 2025 Immix | <a href="https://dostudio.co.in" target="_blank" className="hover:text-white cursor-pointer transition-colors">Powered by Dostudio</a>
             </p>
             <div className="flex gap-2">
-              <span className="hover:text-indigo-300 cursor-pointer transition-colors">• Disclaimer</span>
-              <span className="hover:text-indigo-300 cursor-pointer transition-colors">• Privacy Service</span>
+              <span className="hover:text-white cursor-pointer transition-colors">• Disclaimer</span>
+              <span className="hover:text-white cursor-pointer transition-colors">• Privacy Service</span>
             </div>
           </div>
         </div>

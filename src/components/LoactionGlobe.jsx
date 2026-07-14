@@ -86,20 +86,23 @@ export default function Globe() {
         height: width * 2,
         phi: phiRef.current,
         theta: thetaRef.current,
-        dark: 1,
-        diffuse: 1.2,
+        dark: 0, // 🔑 remove dark shading
+        diffuse: 0.8, // softer lighting
+
         mapSamples: 30000,
-        mapBrightness: 15,
-        baseColor: [0.1, 0.1, 0.1],
-        markerColor: [0.3784, 0.3725, 1],
-        glowColor: [1, 1, 1],
+        mapBrightness: 2, // 🔑 reduce harsh brightness
+
+        baseColor: [1, 1, 1], // 🔑 light gray
+        markerColor: [0.0706, 0.102, 0.2667],
+
+        glowColor: [0.9, 0.9, 0.9], // softer glow (not pure white)
         markers: markers.map((m) => ({
           id: m.id,
           location: m.location,
           size: 0.04,
         })),
         arcs,
-        arcColor: [0.2588, 0.1412, 1],
+        arcColor: [0.0706, 0.102, 0.2667],
         arcWidth: 0.3,
       });
     };
@@ -126,7 +129,7 @@ export default function Globe() {
       (entries) => {
         isVisible.current = entries[0].isIntersecting;
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
     observer.observe(containerRef.current);
 
@@ -170,10 +173,12 @@ export default function Globe() {
       onMouseLeave={stopDragging}
       // Mobile Touch Support
       onTouchStart={(e) => {
-        if (e.touches[0]) handleStart(e.touches[0].clientX, e.touches[0].clientY);
+        if (e.touches[0])
+          handleStart(e.touches[0].clientX, e.touches[0].clientY);
       }}
       onTouchMove={(e) => {
-        if (e.touches[0]) handleMove(e.touches[0].clientX, e.touches[0].clientY);
+        if (e.touches[0])
+          handleMove(e.touches[0].clientX, e.touches[0].clientY);
       }}
       onTouchEnd={stopDragging}
     >
@@ -194,13 +199,13 @@ export default function Globe() {
           }}
         >
           <div className="flex flex-col items-center">
-            <div className="flex flex-col items-center justify-center px-2 py-.5 bg-orange-600 hover:bg-[rgb(73,70,250)] border border-white/20 rounded shadow-xl backdrop-blur-sm transition-colors duration-200">
-              <span className="text-white font-DMmono text-[9px] text-nowrap font-normal tracking-widest">
+            <div className="flex flex-col items-center justify-center px-2 py-.5 bg-primary-1 hover:bg-red-500 border border-white/20 rounded shadow-xl backdrop-blur-sm transition-colors duration-200">
+              <span className="text-white font-DMmono text-[7px] md:text-[9px] text-nowrap font-normal tracking-widest">
                 {marker.name.toUpperCase()}
               </span>
             </div>
-            <div className="w-px h-5 bg-white/40" />
-            <div className="w-1.5 h-1.5 bg-[#5F5EFD] rounded-full" />
+            <div className="w-px h-5 bg-primary-2" />
+            <div className="w-1.5 h-1.5 bg-primary-1 rounded-full" />
           </div>
         </div>
       ))}

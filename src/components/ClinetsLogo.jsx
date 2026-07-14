@@ -5,8 +5,12 @@ import {
 } from "../assets";
 import Marquee from "react-fast-marquee";
 
-const ClientsLogo = [
-      Clinet1,Clinet2,Clinet3,Clinet4,Clinet5,Clinet6,Clinet7,Clinet8,Clinet9,Clinet10,Clinet11,Clinet12,Clinet13,Clinet14,Clinet15,Clinet16,Clinet17,Clinet18,Clinet19,Clinet20,Clinet21,Clinet22,Clinet23,Clinet24,Clinet25,Clinet26,
+const ClientsLogo1 = [
+      Clinet1,Clinet2,Clinet3,Clinet4,Clinet5,Clinet6,Clinet7,Clinet8,Clinet9,Clinet10,Clinet11,Clinet12,Clinet13,
+
+]
+const ClientsLogo2 = [
+      Clinet14,Clinet15,Clinet16,Clinet17,Clinet18,Clinet19,Clinet20,Clinet21,Clinet22,Clinet23,Clinet24,Clinet25,Clinet26,
 
 ]
 
@@ -38,7 +42,25 @@ const OurClients = () => {
           speed={40}
           pauseOnHover={true}
         >
-          {ClientsLogo.map((logo, index) => (
+          {ClientsLogo1.map((logo, index) => (
+            <div className='overflow-hidden'>
+                <img
+              key={index}
+              className="h-20 md:h-28 mx-2 md:mx-5 object-contain hover:scale-110 transition-transform duration-300"
+              src={logo}
+              alt={`Client ${index + 1}`}
+            />
+            </div>
+          ))}
+        </Marquee>
+        <Marquee
+          className="mt-5"
+          gradient={!isMobile}   // 👈 disable on mobile
+          speed={40}
+          pauseOnHover={true}
+          direction="right"
+        >
+          {ClientsLogo2.map((logo, index) => (
             <div className='overflow-hidden'>
                 <img
               key={index}

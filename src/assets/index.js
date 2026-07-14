@@ -1,4 +1,5 @@
-import Logo from "./immix-logo2.png";
+import Logo from "./immix-logonew.webp";
+import Logowhite from "./immix-logonew-white.webp";
 import Homeicon from "./images/homeicon.png";
 import Shape1 from "./images/Shape-01.png";
 import videoglobe from "./images/globe.mov";
@@ -73,7 +74,7 @@ import CDN from './images/globeside.webp'
 import BIGDATA from './images/bigdata.webp'
 
 export {
-    Logo,Homeicon,Shape1,videoglobe,abtbg,
+    Logo,Logowhite,Homeicon,Shape1,videoglobe,abtbg,
     headerbg,getinBg,
     Tab1,Tab2,
     DataCenterColocation,CloudHosting,TelecomandNewtwork,Enterprise,Manage,ContentDelivery,Financial,ITHardware,AIinfra,PubliceSector,

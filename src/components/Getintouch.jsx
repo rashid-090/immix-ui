@@ -35,7 +35,7 @@ const Getintouch = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-primary-1 cursor-pointer hover:bg-primary-2 active:scale-95 text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200"
+              className="bg-white cursor-pointer hover:bg-primary-1 active:scale-95 text-primary-1 hover:text-white text-xs font-light tracking-widest px-6 py-3 rounded-lg transition-all duration-200"
             >
              Talk to an Expert
             </motion.button>

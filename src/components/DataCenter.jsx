@@ -55,11 +55,11 @@ const DataCenter = () => {
       <div className="w-11/12 md:w-10/12 mx-auto">
         <div className="flex flex-col items-center">
           {/* Badge */}
-          <div className="p-2 rounded-[5px] w-fit mx-auto mb-5 bg-primary-1/10">
+          {/* <div className="p-2 rounded-[5px] w-fit mx-auto mb-5 bg-primary-1/10">
             <h2 className="text-[#3F37FF] tracking-wider font-DMmono uppercase text-[10px]">
               [ Global Data Center Network ]
             </h2>
-          </div>
+          </div> */}
 
           {/* Heading */}
           <h1 className="text-3xl md:text-5xl capitalize text-center font-Inter text-slate-900 mb-5">

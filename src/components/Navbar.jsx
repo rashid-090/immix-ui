@@ -66,7 +66,7 @@ const XecureNavbar = () => {
       <div className="w-[95%] mx-auto flex items-center justify-between">
         {/* Logo Section */}
         <Link to="/" className="flex items-center gap-3 flex-shrink-0 cursor-pointer group">
-          <img className="h-11 object-contain" src={Logo} alt="Xecure Logo" />
+          <img className="h-10 object-contain" src={Logo} alt="Xecure Logo" />
         </Link>
 
         {/* Desktop Nav Links */}

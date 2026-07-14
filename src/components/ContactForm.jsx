@@ -99,7 +99,7 @@ const ContactForm = () => {
               <div className="phone-input-container">
                 <PhoneInput
                   international
-                  defaultCountry="IN"
+                  defaultCountry="SG"
                   value={formData.phone}
                   onChange={handlePhoneChange}
                   placeholder="Mobile Number"

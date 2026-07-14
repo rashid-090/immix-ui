@@ -59,11 +59,11 @@ const Industries = () => {
   return (
     <div className="bg-[#F9F8F3] w-full py-20 text-slate-900 font-sans">
       <div className="text-center mb-12 px-4">
-        <div className="p-2 rounded-[5px] w-fit mx-auto mb-5 bg-[#3F37FF]/10">
+        {/* <div className="p-2 rounded-[5px] w-fit mx-auto mb-5 bg-[#3F37FF]/10">
           <h2 className="text-[#3F37FF] tracking-wider font-DMmono uppercase text-[10px]">
             [ Immix Technology ]
           </h2>
-        </div>
+        </div> */}
         <h1 className="text-3xl my-5 md:text-5xl capitalize font-Inter text-slate-900">
           Industries
         </h1>
@@ -188,7 +188,7 @@ const Industries = () => {
           transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .custom-pagination .swiper-pagination-bullet-active {
-          background: #3f37ff !important;
+          background: #121A44 !important;
           width: 20px;
           border-radius: 10px;
         }

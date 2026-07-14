@@ -4,11 +4,11 @@ const index = () => {
   return (
     <div>
       <Banner />
-      <Counters/>
+      <DataCounts/>
+      {/* <Counters/> */}
       <Service />
       <Getintouch/>
       <Industries/>
-      <DataCounts/>
       <Cases />
       <DataCenter/>
       <ClinetsLogo/>
